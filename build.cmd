@@ -1,0 +1,1 @@
+start cmd /c "cd .\service-testing\ef-core-in-memory\Ttp.Web.EfCoreInMemory && dotnet build && dotnet run"
