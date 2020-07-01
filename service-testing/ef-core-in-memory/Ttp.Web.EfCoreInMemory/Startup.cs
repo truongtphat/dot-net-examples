@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Ttp.Web.EfCoreInMemory.Infrastructure;
+using Ttp.Web.EfCoreInMemory.Application;
 
 namespace Ttp.Web.EfCoreInMemory
 {
@@ -20,12 +21,17 @@ namespace Ttp.Web.EfCoreInMemory
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<ApplicationDbContext>(option =>
-            //    {
-            //        option.UseInMemoryDatabase("ApplicationDbInMemory");
-            //    });
+            services.AddApplication();
+
+            services.AddInfrastructure();
 
             services.AddControllers();
+
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Title = "Ef Core In Memory",
+                Version = "1.0"
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +45,13 @@ namespace Ttp.Web.EfCoreInMemory
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ef Core In Memory V1");
+            });
 
             app.UseAuthorization();
 
