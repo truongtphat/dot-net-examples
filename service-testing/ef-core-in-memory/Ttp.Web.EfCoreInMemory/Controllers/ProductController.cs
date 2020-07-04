@@ -23,7 +23,7 @@ namespace Ttp.Web.EfCoreInMemory.Controllers
         [HttpGet]
         public async Task<List<ProductModel>> Gets()
         {
-            return await _mediator.Send(new GetProductQuery());
+            return await _mediator.Send(new GetProductsQuery());
         }
 
         [Route("")]

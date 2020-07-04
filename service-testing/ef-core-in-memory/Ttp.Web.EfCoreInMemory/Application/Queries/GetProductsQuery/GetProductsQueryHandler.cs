@@ -9,16 +9,16 @@ using Ttp.Web.EfCoreInMemory.Application.Models;
 
 namespace Ttp.Web.EfCoreInMemory.Application.Queries
 {
-    public class GetProductQueryHandler : IRequestHandler<GetProductQuery, List<ProductModel>>
+    public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, List<ProductModel>>
     {
         private readonly IApplicationDbContext _applicationDbContext;
 
-        public GetProductQueryHandler(IApplicationDbContext applicationDbContext)
+        public GetProductsQueryHandler(IApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
         }
 
-        public async Task<List<ProductModel>> Handle(GetProductQuery request, CancellationToken cancellationToken)
+        public async Task<List<ProductModel>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
             var products = await _applicationDbContext.Products.Select(p => new ProductModel(p)).ToListAsync(cancellationToken);
             return products;
