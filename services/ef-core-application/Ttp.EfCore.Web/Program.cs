@@ -1,4 +1,6 @@
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 namespace Ttp.EfCore.Web
@@ -14,7 +16,14 @@ namespace Ttp.EfCore.Web
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    var config = 
+                        new ConfigurationBuilder()
+                        .AddCommandLine(args)
+                        .Build();
+
+                    webBuilder
+                        .UseConfiguration(config)
+                        .UseStartup<Startup>();
                 });
     }
 }

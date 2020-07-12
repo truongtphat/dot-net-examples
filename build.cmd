@@ -1,1 +1,0 @@
-start cmd /c "cd .\services\ef-core-application\Ttp.EfCore.Web && dotnet build && dotnet run"
