@@ -9,6 +9,10 @@ namespace Ttp.EfCore.Web.Application.Interfaces
     {
         DbSet<Product> Products { get; set; }
 
+        DbSet<TrackingActivity> TrackingActivities { get; set; }
+
+        Task<int> ExecuteSqlRaw(string sqlRaw, string[] parameters, CancellationToken cancellationToken);
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

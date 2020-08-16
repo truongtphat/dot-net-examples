@@ -29,14 +29,19 @@ namespace Ttp.EfCore.Web
 
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Ef Core In Memory",
+                Title = "Ef Core Example",
                 Version = "1.0"
             }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(
+            IApplicationBuilder app,
+            IWebHostEnvironment env,
+            ISeeder seeder)
         {
+            seeder.InitDatabase();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -50,7 +55,7 @@ namespace Ttp.EfCore.Web
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ef Core In Memory V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ef Core Example V1");
             });
 
             app.UseAuthorization();

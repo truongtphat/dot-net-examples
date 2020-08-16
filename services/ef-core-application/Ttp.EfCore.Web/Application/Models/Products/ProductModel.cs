@@ -1,4 +1,5 @@
-﻿using Ttp.EfCore.Web.Domain.Entities;
+﻿using System;
+using Ttp.EfCore.Web.Domain.Entities;
 
 namespace Ttp.EfCore.Web.Application.Models
 {
@@ -10,10 +11,13 @@ namespace Ttp.EfCore.Web.Application.Models
 
         public ProductModel(Product product)
         {
+            Id = product.Id;
             Name = product.Name;
             Quantity = product.Quantity;
             Description = product.Description;
         }
+
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
 

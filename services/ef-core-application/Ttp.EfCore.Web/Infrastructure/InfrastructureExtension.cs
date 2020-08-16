@@ -27,6 +27,8 @@ namespace Ttp.EfCore.Web.Infrastructure
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
+            services.AddScoped<ISeeder, Seeder>();
+
             return services;
         }
     }
