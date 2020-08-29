@@ -8,7 +8,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		..\..\global.json = ..\..\global.json
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ttp.EfCore.Web", "services\ef-core-application\Ttp.EfCore.Web\Ttp.EfCore.Web.csproj", "{E1CD060E-A5E8-401A-B70A-1ACDECD40750}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9F3903A9-44BC-4AD8-9460-3908DB7000CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{256161AA-A171-49C6-93ED-7048D3DE25FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ttp.EfCore.Web", "src\services\Ttp.EfCore.Web\Ttp.EfCore.Web.csproj", "{5ABC2F14-93E4-4833-A0A0-D325B779D819}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{9382E006-9763-4720-BEC1-7AF69621E353}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +22,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E1CD060E-A5E8-401A-B70A-1ACDECD40750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1CD060E-A5E8-401A-B70A-1ACDECD40750}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1CD060E-A5E8-401A-B70A-1ACDECD40750}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1CD060E-A5E8-401A-B70A-1ACDECD40750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ABC2F14-93E4-4833-A0A0-D325B779D819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABC2F14-93E4-4833-A0A0-D325B779D819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABC2F14-93E4-4833-A0A0-D325B779D819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABC2F14-93E4-4833-A0A0-D325B779D819}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{256161AA-A171-49C6-93ED-7048D3DE25FE} = {9F3903A9-44BC-4AD8-9460-3908DB7000CA}
+		{5ABC2F14-93E4-4833-A0A0-D325B779D819} = {256161AA-A171-49C6-93ED-7048D3DE25FE}
+		{9382E006-9763-4720-BEC1-7AF69621E353} = {9F3903A9-44BC-4AD8-9460-3908DB7000CA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2107D543-8816-4A8D-8775-D3D425C59586}
