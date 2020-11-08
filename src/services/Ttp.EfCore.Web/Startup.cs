@@ -4,8 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Ttp.EfCore.Web.Infrastructure;
 using Ttp.EfCore.Web.Application;
+using Ttp.EfCore.Web.Infrastructure;
 
 namespace Ttp.EfCore.Web
 {
@@ -30,7 +30,7 @@ namespace Ttp.EfCore.Web
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo
             {
                 Title = "Ef Core Example",
-                Version = "1.0"
+                Version = "1.0",
             }));
         }
 
